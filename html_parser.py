@@ -8,7 +8,6 @@ class HTMLParser:
 
     def parse_html(self, html_content, results, index):
         soup = BeautifulSoup(html_content, 'html.parser')
-        # extracting all the links 
         links = [a.get('href') for a in soup.find_all('a', href=True)]
         results[index] = links
 

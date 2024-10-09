@@ -9,8 +9,7 @@ class AsyncFetcher:
     async def fetch_html(self,session, url):
         async with session.get(url) as response:
             return await response.text()
-
-    # fetch content from multiple URLs asynchronously
+            
     async def fetch_all(self):
         async with aiohttp.ClientSession() as session:
             tasks = [self.fetch_html(session , url) for url in self.urls]
